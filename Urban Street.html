@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Urban Street – Baggy Pants</title>
+<style>
+:root{--black:#0e0e0e;--ink:#1a1a1a;--cream:#f3ead8;--cream2:#e6dac0;--muted:#9a917d;--wa:#25d366;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--black);color:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:Impact,"Arial Narrow Bold","Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:0;font-weight:400}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(14,14,14,.92);backdrop-filter:blur(8px);border-bottom:1px solid #2a2a2a}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:Impact,Arial,sans-serif;font-size:1.5rem;letter-spacing:.06em}
+.logo span{color:var(--muted)}
+nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0}
+nav a{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+nav a:hover{color:var(--muted)}
+.burger{display:none;background:none;border:1px solid var(--cream);color:var(--cream);width:44px;height:40px;border-radius:6px;font-size:1.2rem;cursor:pointer}
+@media(max-width:700px){
+ .burger{display:block}
+ nav{position:absolute;left:0;right:0;top:60px;background:var(--black);border-bottom:1px solid #2a2a2a;max-height:0;overflow:hidden;transition:max-height .3s}
+ nav.open{max-height:260px}
+ nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}
+ nav a{display:block;padding:14px 0;border-bottom:1px solid #222}
+}
+.hero{padding:70px 0 60px;text-align:center;background:radial-gradient(circle at 50% 0,#262017 0,var(--black) 65%)}
+.hero small{letter-spacing:.3em;text-transform:uppercase;color:var(--muted);font-size:.75rem}
+.hero h1{font-size:clamp(3rem,15vw,7.5rem);line-height:.95;margin:14px 0 18px}
+.hero p{max-width:460px;margin:0 auto 28px;color:var(--cream2)}
+.btn{display:inline-block;background:var(--cream);color:var(--black);padding:14px 30px;border:0;border-radius:2px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;cursor:pointer;min-height:48px}
+.btn:hover{background:#fff}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--cream)}
+section{padding:64px 0}
+.title{text-align:center;margin-bottom:36px}
+.title h2{font-size:clamp(2rem,8vw,3.2rem)}
+.title p{color:var(--muted);margin:6px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.card{background:var(--cream);color:var(--black);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.photo{position:relative;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.photo svg,.photo img{width:78%;height:auto;max-height:92%;object-fit:contain}
+.tag{position:absolute;top:12px;left:12px;background:var(--black);color:var(--cream);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px}
+.info{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.info h3{font-size:1.35rem}
+.price{font-weight:800;font-size:1.2rem}
+.info p{margin:0;font-size:.9rem;color:#4a4436}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.sizes button{min-width:44px;min-height:44px;border:1.5px solid var(--black);background:transparent;color:var(--black);font-weight:700;border-radius:4px;cursor:pointer;font-size:.9rem}
+.sizes button.on{background:var(--black);color:var(--cream)}
+.order{margin-top:auto;background:var(--black);color:var(--cream);text-align:center;padding:14px;border-radius:4px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;min-height:48px;display:flex;align-items:center;justify-content:center}
+.order:hover{background:#2b2b2b}
+#about{background:var(--cream);color:var(--black)}
+#about .title p{color:#6b6350}
+.about{display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:center}
+@media(max-width:700px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.stats div{background:var(--black);color:var(--cream);padding:20px 6px;border-radius:6px}
+.stats b{display:block;font-family:Impact,Arial,sans-serif;font-size:1.8rem;font-weight:400}
+.stats span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#contact{text-align:center}
+#contact p{max-width:440px;margin:0 auto 24px;color:var(--cream2)}
+.wa{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#06220f;padding:15px 28px;border-radius:50px;font-weight:800;min-height:52px}
+footer{border-top:1px solid #2a2a2a;padding:24px 0;text-align:center;color:var(--muted);font-size:.8rem}
+.float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.5);z-index:30}
+.float svg{width:30px;height:30px;fill:#fff}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--cream);color:var(--black);padding:10px 18px;border-radius:4px;font-size:.85rem;opacity:0;pointer-events:none;transition:.3s;z-index:40;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%)}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="#top" class="logo">URBAN<span>/</span>STREET</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  <nav id="menu"><ul>
+   <li><a href="#shop">Shop</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main id="top">
+ <div class="hero"><div class="wrap">
+  <small>New drop · Baggy fit</small>
+  <h1>Wear the<br>Street</h1>
+  <p>Oversized pants built for movement, comfort and attitude. Three fits. Zero compromise.</p>
+  <a class="btn" href="#shop">Shop baggy pants</a>
+ </div></div>
+
+ <section id="shop"><div class="wrap">
+  <div class="title"><h2>Baggy Collection</h2><p>Pick your size, order on WhatsApp.</p></div>
+  <div class="grid" id="grid"></div>
+ </div></section>
+
+ <section id="about"><div class="wrap">
+  <div class="title"><h2>About Urban Street</h2><p>Made for the city, worn by the crowd.</p></div>
+  <div class="about">
+   <div>
+    <p>Urban Street started with a simple idea: clothes should feel as relaxed as the people wearing them. We focus on baggy, wide-leg silhouettes that look sharp and move with you.</p>
+    <p>Every piece is cut with a roomy fit, heavy-weight fabric and clean details, so you can go from skate park to night out without changing.</p>
+    <a class="btn" href="#contact">Get in touch</a>
+   </div>
+   <div class="stats">
+    <div><b>3</b><span>Signature fits</span></div>
+    <div><b>100%</b><span>Heavy fabric</span></div>
+    <div><b>24h</b><span>WhatsApp reply</span></div>
+   </div>
+  </div>
+ </div></section>
+
+ <section id="contact"><div class="wrap">
+  <div class="title"><h2>Order &amp; Contact</h2></div>
+  <p>Questions about sizing or delivery? Message us directly on WhatsApp and we’ll sort you out.</p>
+  <a class="wa" id="waMain" target="_blank" rel="noopener">
+   <svg width="22" height="22" viewBox="0 0 24 24" fill="#06220f"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.300 1.700 2.100 1.200 1 2.200 1.400 2.500 1.500.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.8-.1 1.400z"/></svg>
+   Chat on WhatsApp
+  </a>
+ </div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Urban Street · Demo store</div></footer>
+
+<a class="float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+ <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.200 1 2.200 1.400 2.500 1.500.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.8-.1 1.400z"/></svg>
+</a>
+<div class="toast" id="toast"></div>
+
+<script>
+// Replace with your real WhatsApp number (country code, digits only)
+var WA_NUMBER = "1234567890";
+
+// To use real photos, set "img" to a photo URL or data URI for any product.
+var products = [
+ {id:1, name:"Washed Black Cargo", price:54, color:"#1c1c1c", bg:"#d9ccb0", accent:"#3a3a3a", tag:"Best seller", img:"",
+  desc:"Relaxed cargo baggy with deep pockets and a washed black finish."},
+ {id:2, name:"Cream Wide-Leg Denim", price:49, color:"#efe3c8", bg:"#2a2a2a", accent:"#c9b996", tag:"New", img:"",
+  desc:"Heavy cream denim with an extra-wide leg and a dropped waist."},
+ {id:3, name:"Charcoal Parachute", price:59, color:"#4b4b4b", bg:"#e6dac0", accent:"#2c2c2c", tag:"Limited", img:"",
+  desc:"Lightweight parachute baggy with adjustable cuffs and a drawstring waist."}
+];
+var sizes = ["S","M","L","XL"];
+var selected = {};
+
+function pantsSVG(p){
+ return '<svg viewBox="0 0 200 260" role="img" aria-label="'+p.name+'">'+
+ '<path d="M58 18H142L164 244H106L100 112L94 244H36Z" fill="'+p.color+'" stroke="'+p.accent+'" stroke-width="2" stroke-linejoin="round"/>'+
+ '<rect x="58" y="18" width="84" height="14" fill="'+p.accent+'"/>'+
+ '<path d="M100 32V112" stroke="'+p.accent+'" stroke-width="2"/>'+
+ '<path d="M66 44Q78 62 76 78" stroke="'+p.accent+'" stroke-width="2" fill="none"/>'+
+ '<path d="M134 44Q122 62 124 78" stroke="'+p.accent+'" stroke-width="2" fill="none"/>'+
+ '<rect x="48" y="140" width="26" height="30" rx="3" fill="none" stroke="'+p.accent+'" stroke-width="2"/>'+
+ '<rect x="126" y="140" width="26" height="30" rx="3" fill="none" stroke="'+p.accent+'" stroke-width="2"/>'+
+ '</svg>';
+}
+
+function waLink(text){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text);}
+
+function render(){
+ var grid=document.getElementById("grid"), html="";
+ products.forEach(function(p){
+  selected[p.id]="M";
+  var visual=p.img?'<img src="'+p.img+'" alt="'+p.name+'">':pantsSVG(p);
+  var chips=sizes.map(function(s){return '<button type="button" data-id="'+p.id+'" data-size="'+s+'" class="'+(s==="M"?"on":"")+'">'+s+'</button>';}).join("");
+  html+='<article class="card"><div class="photo" style="background:'+p.bg+'"><span class="tag">'+p.tag+'</span>'+visual+'</div>'+
+   '<div class="info"><div class="row"><h3>'+p.name+'</h3><span class="price">$'+p.price+'</span></div>'+
+   '<p>'+p.desc+'</p><div class="sizes" aria-label="Size">'+chips+'</div>'+
+   '<a class="order" id="order'+p.id+'" target="_blank" rel="noopener">Order on WhatsApp</a></div></article>';
+ });
+ grid.innerHTML=html;
+ products.forEach(updateLink);
+}
+
+function updateLink(p){
+ var msg="Hi Urban Street! I’d like to order the "+p.name+" ($"+p.price+") in size "+selected[p.id]+".";
+ document.getElementById("order"+p.id).href=waLink(msg);
+}
+
+document.getElementById("grid").addEventListener("click",function(e){
+ var b=e.target.closest("button[data-size]"); if(!b) return;
+ var id=+b.dataset.id;
+ selected[id]=b.dataset.size;
+ b.parentNode.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b);});
+ var p=products.filter(function(x){return x.id===id;})[0];
+ updateLink(p);
+ var t=document.getElementById("toast");
+ t.textContent=p.name+" · size "+b.dataset.size+" selected";
+ t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(function(){t.classList.remove("show");},1400);
+});
+
+var hello=waLink("Hi Urban Street! I have a question.");
+document.getElementById("waMain").href=hello;
+document.getElementById("waFloat").href=hello;
+
+var burger=document.getElementById("burger"), menu=document.getElementById("menu");
+burger.addEventListener("click",function(){
+ var o=menu.classList.toggle("open"); burger.setAttribute("aria-expanded",o);
+});
+menu.addEventListener("click",function(e){ if(e.target.tagName==="A"){menu.classList.remove("open");burger.setAttribute("aria-expanded","false");} });
+
+render();
+</script>
+</body>
+</html>
